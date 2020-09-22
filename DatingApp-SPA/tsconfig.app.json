@@ -2,7 +2,8 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "paths": { "@kolkov/ngx-gallery": ["node_modules/@kolkov/ngx-gallery"] }
   },
   "files": [
     "src/main.ts",
