@@ -25,6 +25,9 @@ import { MemberDetailComponent } from './members/member-detail/member-detail.com
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { MemberEditResolver } from './_resolvers/member-edit.resolver';
+import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 
 export function tokenGetter(){
@@ -32,7 +35,7 @@ export function tokenGetter(){
 }
 
 @NgModule({
-  declarations: [AppComponent, NavComponent, HomeComponent, RegisterComponent, MemberListComponent, ListsComponent, MessagesComponent,MemberCardComponent,MemberDetailComponent],
+  declarations: [AppComponent, NavComponent, HomeComponent, RegisterComponent, MemberListComponent, ListsComponent, MessagesComponent,MemberCardComponent,MemberDetailComponent, MemberEditComponent],
   imports: [BrowserModule, CommonModule, HttpClientModule, FormsModule, BrowserAnimationsModule, BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     RouterModule.forRoot(appRoutes),
@@ -44,7 +47,7 @@ export function tokenGetter(){
         disallowedRoutes:['localhost:5000/api/auth']
       }
     })],
-  providers: [AuthService, ErrorInterCeptorProvider, MemberDetailResolver, MemberListResolver],
+  providers: [AuthService, ErrorInterCeptorProvider, MemberDetailResolver, MemberListResolver, MemberEditResolver, PreventUnsavedChanges],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
