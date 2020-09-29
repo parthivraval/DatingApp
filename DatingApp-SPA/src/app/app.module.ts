@@ -31,6 +31,7 @@ import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
+import { TimeagoModule } from 'ngx-timeago';
 
 
 export function tokenGetter(){
@@ -45,13 +46,14 @@ export function tokenGetter(){
     BsDatepickerModule.forRoot(),
     TabsModule.forRoot(),
     RouterModule.forRoot(appRoutes),
+    TimeagoModule.forRoot(),
     NgxGalleryModule,
     FileUploadModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
         allowedDomains: ['localhost:5000'],
-        disallowedRoutes:['localhost:5000/api/auth']
+        disallowedRoutes: ['localhost:5000/api/auth']
       }
     })],
   providers: [AuthService, ErrorInterCeptorProvider, MemberDetailResolver, MemberListResolver, MemberEditResolver, PreventUnsavedChanges],
