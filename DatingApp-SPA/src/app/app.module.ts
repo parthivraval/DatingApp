@@ -34,6 +34,7 @@ import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { FileUploadModule } from 'ng2-file-upload';
 import { TimeagoModule } from 'ngx-timeago';
+import { ListsResolver } from './_resolvers/lists.resolver';
 
 
 export function tokenGetter(){
@@ -60,7 +61,8 @@ export function tokenGetter(){
         disallowedRoutes: ['localhost:5000/api/auth']
       }
     })],
-  providers: [AuthService, ErrorInterCeptorProvider, MemberDetailResolver, MemberListResolver, MemberEditResolver, PreventUnsavedChanges],
+  providers: [AuthService, ErrorInterCeptorProvider, MemberDetailResolver, MemberListResolver, MemberEditResolver, 
+    PreventUnsavedChanges, ListsResolver],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
