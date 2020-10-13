@@ -35,6 +35,8 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
 import { FileUploadModule } from 'ng2-file-upload';
 import { TimeagoModule } from 'ngx-timeago';
 import { ListsResolver } from './_resolvers/lists.resolver';
+import { MessagesResolver } from './_resolvers/messages.resolver';
+import { MemberMessagesComponent } from './members/member-messages/member-messages.component';
 
 
 export function tokenGetter(){
@@ -42,7 +44,9 @@ export function tokenGetter(){
 }
 
 @NgModule({
-  declarations: [AppComponent, NavComponent, HomeComponent, RegisterComponent, MemberListComponent, ListsComponent, MessagesComponent,MemberCardComponent,MemberDetailComponent, MemberEditComponent, PhotoEditorComponent],
+  declarations: [AppComponent, NavComponent, HomeComponent, RegisterComponent, MemberListComponent, ListsComponent, MessagesComponent,
+    MemberCardComponent,MemberDetailComponent,
+     MemberEditComponent, PhotoEditorComponent, MemberMessagesComponent],
   imports: [BrowserModule, CommonModule, HttpClientModule, FormsModule, ReactiveFormsModule,
     BrowserAnimationsModule, 
     BsDropdownModule.forRoot(),
@@ -62,7 +66,7 @@ export function tokenGetter(){
       }
     })],
   providers: [AuthService, ErrorInterCeptorProvider, MemberDetailResolver, MemberListResolver, MemberEditResolver, 
-    PreventUnsavedChanges, ListsResolver],
+    PreventUnsavedChanges, ListsResolver, MessagesResolver],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
